@@ -1,4 +1,4 @@
-var SoundManager = require("./SoundManager.js");
+var SoundContext = require("./SoundContext.js");
 
 var Sound = function(buffer)
 {
@@ -6,9 +6,9 @@ var Sound = function(buffer)
 }
 
 Sound.prototype.play = function(delay) {
-	var source = SoundManager.context.createBufferSource(); 
+	var source = SoundContext.createBufferSource(); 
 	source.buffer = this.buffer;                    
-	source.connect(SoundManager.context.destination);
+	source.connect(SoundContext.destination);
 	source.start(delay);
 };
 

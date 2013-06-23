@@ -1,4 +1,5 @@
 var sm = require("./SoundManager");
+var SoundContext = require("./SoundContext");
 
 var Metronome = function(bip)
 {
@@ -11,7 +12,7 @@ Metronome.prototype.play = function()
 {
 	(function scheduleNotes()
 	{
-		var startTime = sm.context.currentTime + 0.100;
+		var startTime = SoundContext.currentTime + 0.100;
 	  	
 		var noteTime = (60 / this.tempo);
 
