@@ -4,8 +4,6 @@ var SoundContext = require("./SoundContext");
 var SoundManager =function(){};
 SoundManager.loaded = [];
 
-
-
 SoundManager.batchLoad = function(inputArray,cb)
 {
 
