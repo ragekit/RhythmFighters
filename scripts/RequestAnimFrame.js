@@ -29,5 +29,3 @@
             clearTimeout(id);
         };
 }());
-
-module.exports = window.requestAnimationFrame;

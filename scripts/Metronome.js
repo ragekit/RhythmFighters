@@ -1,5 +1,5 @@
 var sm = require("./SoundManager");
-var SoundContext = require("./SoundContext");
+var Synth = require("./Synth");
 
 var Metronome = function(bip)
 {
@@ -10,6 +10,7 @@ var Metronome = function(bip)
 
 	//to test
 	this.beatTimes = [];
+	this.synth = new Synth();
 }
 
 Metronome.prototype.play = function()
@@ -18,14 +19,14 @@ Metronome.prototype.play = function()
 	this.running = true;
 	(function scheduleNotes()
 	{
-		var startTime = SoundContext.currentTime;
+		var startTime = sm.context.currentTime;
 		var noteTime = (60 / this.tempo);
 		this.beatTimes = [];
 
 		for (var i = 0; i < 4; i++) 
 		{
 			this.beatTimes.push(startTime+ i * noteTime);
-			this.bip.play(startTime + i * noteTime);
+			this.synth.play(startTime + i * noteTime);
 		}
 		this.timer = window.setTimeout(scheduleNotes.bind(this),noteTime * 1000 * 4); 
 	}.bind(this))()

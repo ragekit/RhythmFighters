@@ -1,4 +1,4 @@
-//Singleton to ensure there's only one sound Context
+//soundcontext wrapper.
 
 var SoundContext;
 try

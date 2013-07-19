@@ -3,6 +3,7 @@ var SoundContext = require("./SoundContext");
 
 var SoundManager =function(){};
 SoundManager.loaded = [];
+SoundManager.context = SoundContext;
 
 SoundManager.batchLoad = function(inputArray,cb)
 {
@@ -19,7 +20,7 @@ SoundManager.loadSound = function(url,cb)
 	// Decode asynchronously
 	request.onload = function()
 	{
-		SoundContext.decodeAudioData(request.response, function(buffer)
+		SoundManager.context.decodeAudioData(request.response, function(buffer)
 		{
 			var sound = new Sound(buffer);
 			SoundManager.loaded[url] = sound;

@@ -1,5 +1,7 @@
 var SoundContext = require("./SoundContext.js");
 
+//Wrapper around a soundBuffer
+
 var Sound = function(buffer)
 {
 	this.buffer = buffer;
