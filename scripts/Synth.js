@@ -7,7 +7,10 @@ var halftone = 1.05946;
 var tone = halftone*halftone;
 
 function Synth(){
-
+	this.scale = null;
+	this.tonal = null;
+	this.defaultDelay = 0;
+	this.defaultNoteTime = 200;
 }
 
 
@@ -22,6 +25,7 @@ Synth.scale = {
 
 
 
+//for debug
 Synth.prototype.playScale = function(tonal,scale)
 {
 	for(var i=1;i<=scale.length+1;i++)
@@ -31,10 +35,19 @@ Synth.prototype.playScale = function(tonal,scale)
 
 }
 
+Synth.prototype.getJamNote = function()
+{
+
+}
 
 //degree 1 = tonal
 Synth.prototype.playDegree = function(numb,tonal,scale,delay)
 {
+	if(tonal ==undefined || scale == undefined)
+	{
+		tonal = this.tonal;
+		scale = this.scale;
+	}
 	var freqMultiplier = 1;
 
 	for(var i = 0;i<numb-1;i++)
@@ -47,11 +60,12 @@ Synth.prototype.playDegree = function(numb,tonal,scale,delay)
 Synth.prototype.play = function(freq,delay)
 {	
 	var s = SoundManager.context.createOscillator();
+	delay = delay | this.defaultDelay;
 	delay = SoundManager.context.currentTime + delay;
 	s.connect( SoundManager.context.destination );
 	s.frequency.value = freq;
 	s.start(delay);
-	s.stop(delay+100/1000);
+	s.stop(delay+this.defaultNoteTime/1000);
 }
 
 module.exports = Synth;

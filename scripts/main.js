@@ -8,12 +8,13 @@ console.log("ONO");
 
 
 var s = new Synth();
+s.tonal = 264;
+s.scale = Synth.scale.pentaMinor;
 
 window.onkeydown = function(e) {
 
 	if (e.keyCode == 65) {
-		s.playScale(264, Synth.scale.pentaMinor);
-		console.log("kdown");
+		s.playDegree(Math.floor(Math.random()*s.scale.length)+1);
 	}
 
 }
