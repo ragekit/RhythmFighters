@@ -3,21 +3,30 @@ var SoundManager = require("./SoundManager")
 //gap between notes in major second (ton)
 
 var octave = 6;
-
+var halftone = 1.05946;
+var tone = halftone*halftone;
 
 function Synth(){
 
 }
 
+
+//gap betw notes in halftone
 Synth.scale = {
-	major : [1,1,1/2,1,1,1,1/2]
+	major : [2,2,1,2,2,2,1],
+	minor : [2,1,2,2,1,2,2],
+	chroma : [1,1,1,1,1,1,1,1,1,1,1,1],
+	pentaMajor :[2,2,3,2,3],
+	pentaMinor :[3,2,2,3,2]
 }
+
+
 
 Synth.prototype.playScale = function(tonal,scale)
 {
 	for(var i=1;i<=scale.length+1;i++)
 	{
-		this.playDegree(i, 440, Synth.scale.major,i*1000/1000);
+		this.playDegree(i, tonal, scale,i*200/1000);
 	}
 
 }
@@ -30,9 +39,8 @@ Synth.prototype.playDegree = function(numb,tonal,scale,delay)
 
 	for(var i = 0;i<numb-1;i++)
 	{
-		freqMultiplier += scale[i]/6;
+		freqMultiplier *= Math.pow(1.05946,scale[i]);
 	}
-	console.log(freqMultiplier);
 	this.play(tonal * freqMultiplier,delay);
 }
 
@@ -43,7 +51,7 @@ Synth.prototype.play = function(freq,delay)
 	s.connect( SoundManager.context.destination );
 	s.frequency.value = freq;
 	s.start(delay);
-	s.stop(delay+500/1000);
+	s.stop(delay+100/1000);
 }
 
 module.exports = Synth;

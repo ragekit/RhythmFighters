@@ -12,7 +12,7 @@ var s = new Synth();
 window.onkeydown = function(e) {
 
 	if (e.keyCode == 65) {
-		s.playScale(440, Synth.scale.major);
+		s.playScale(264, Synth.scale.pentaMinor);
 		console.log("kdown");
 	}
 
