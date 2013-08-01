@@ -20,7 +20,8 @@ Synth.scale = {
 	minor : [2,1,2,2,1,2,2],
 	chroma : [1,1,1,1,1,1,1,1,1,1,1,1],
 	pentaMajor :[2,2,3,2,3],
-	pentaMinor :[3,2,2,3,2]
+	pentaMinor :[3,2,2,3,2],
+	pentaBlueNote :[]
 }
 
 
@@ -35,6 +36,7 @@ Synth.prototype.playScale = function(tonal,scale)
 
 }
 
+//automatic jam, nicer than random note
 Synth.prototype.getJamNote = function()
 {
 
@@ -43,6 +45,7 @@ Synth.prototype.getJamNote = function()
 //degree 1 = tonal
 Synth.prototype.playDegree = function(numb,tonal,scale,delay)
 {
+	//if just numb definied : play this synth tonal and scale.
 	if(tonal ==undefined || scale == undefined)
 	{
 		tonal = this.tonal;
