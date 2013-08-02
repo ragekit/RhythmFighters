@@ -4,7 +4,7 @@ var SoundContext;
 try
 {
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	SoundContext = new AudioContext();
+	SoundContext = window.AudioContext;
 }
 catch (e)
 {

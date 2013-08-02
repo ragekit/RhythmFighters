@@ -3,7 +3,7 @@ var SoundContext = require("./SoundContext");
 
 var SoundManager =function(){};
 SoundManager.loaded = [];
-SoundManager.context = SoundContext;
+SoundManager.context = new SoundContext();
 
 SoundManager.batchLoad = function(inputArray,cb)
 {

@@ -21,7 +21,7 @@ Synth.scale = {
 	chroma : [1,1,1,1,1,1,1,1,1,1,1,1],
 	pentaMajor :[2,2,3,2,3],
 	pentaMinor :[3,2,2,3,2],
-	pentaBlueNote :[]
+	pentaBlueNote :[1]
 }
 
 
