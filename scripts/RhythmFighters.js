@@ -6,7 +6,10 @@ RhythmFighters.prototype.constructor = RhythmFighters;
 
 function RhythmFighters()
 {
+	this.notes = [];
+	
 	Game.call(this,640,480,"#000000");
+
 	var leftBar = new Sprite(0,0,10,100,"#00FFFF");
 	this.partition = new Sprite(100,300,400,100,"#FFFFFF");
 
@@ -16,10 +19,6 @@ function RhythmFighters()
 
 	this.partition.add(leftBar);
 	this.partition.add(rightBar);
-	//partition.add(rightBar);
-
-	this.notes = [];
-	this.loop();
 }
 
 

@@ -18,7 +18,8 @@ function Game(width,height,backgroundColor)
 	document.body.appendChild(this.canvas);
 	this.ctx = this.canvas.getContext("2d");
 	this.sprites =[];
-	
+
+	this.loop();
 	window.onkeydown = this.onKeyDown.bind(this);
 }
 
