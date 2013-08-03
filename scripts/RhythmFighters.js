@@ -8,18 +8,18 @@ function RhythmFighters()
 {
 	Game.call(this,640,480,"#000000");
 	var leftBar = new Sprite(0,0,10,100,"#00FFFF");
-	var partition = new Sprite(100,300,400,100,"#FFFFFF");
+	this.partition = new Sprite(100,300,400,100,"#FFFFFF");
 
-	var rightBar = new Sprite(partition.width -10,0,10,100,"#FF00FF");
+	var rightBar = new Sprite(this.partition.width -10,0,10,100,"#FF00FF");
 
-	this.add(partition);
+	this.add(this.partition);
 
-	partition.add(leftBar);
-	partition.add(rightBar);
+	this.partition.add(leftBar);
+	this.partition.add(rightBar);
 	//partition.add(rightBar);
 
 	this.notes = [];
-
+	this.loop();
 }
 
 
@@ -27,6 +27,12 @@ function RhythmFighters()
 RhythmFighters.prototype.loop = function(time)
 {
 	Game.prototype.loop.call(this,time);
+	//console.log(this.notes);
+
+	for(var i =0;i<this.notes.length;i++)
+	{
+		this.notes[i].x ++ ;
+	}
 }
 
 RhythmFighters.prototype.onKeyDown = function(e)
