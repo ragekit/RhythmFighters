@@ -9,11 +9,3 @@ var rf = new rf();
 var s = new Synth();
 s.tonal = 264;
 s.scale = Synth.scale.pentaMinor;
-
-
-window.onkeydown = function(e) {
-	if (e.keyCode == 65) {
-		s.playDegree(Math.floor(Math.random()*s.scale.length)+1);
-	}
-}
-
