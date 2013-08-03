@@ -6,14 +6,20 @@ RhythmFighters.prototype.constructor = RhythmFighters;
 
 function RhythmFighters()
 {
-	console.log(this);
 	Game.call(this,640,480,"#000000");
-	var leftBar = new Sprite(100,300,10,100,"#00FFFF");
+	var leftBar = new Sprite(0,0,10,100,"#00FFFF");
 
-	var rightBar = new Sprite(500,300,10,100,"#FF00FF");
+	
 
-	this.add(leftBar);
-	this.add(rightBar);
+	var partition = new Sprite(100,300,400,100,"#FFFFFF");
+
+	var rightBar = new Sprite(partition.width -10,0,10,100,"#FF00FF");
+
+	this.add(partition);
+
+	partition.add(leftBar);
+	partition.add(rightBar);
+	//partition.add(rightBar);
 
 }
 
